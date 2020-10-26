@@ -4,25 +4,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.treblereel.gwt</groupId>
+	<groupId>haumacher.de</groupId>
 	<artifactId>hello-three4g</artifactId>
 	<version>0.108-SNAPSHOT</version>
 
-	<name>hellp-three4g</name>
-	<description>Hello cube demo</description>
-	<url>https://github.com/treblereel</url>
+	<name>hello-three4g</name>
+	<description>Hello cube demo in three4g</description>
+	<url>https://github.com/haumacher/hello-three4g</url>
 
 	<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
         <gwt.version>2.9.0</gwt.version>
-        
-        <!-- elemental2 1.1 is not compatible with gwt 2.8.2, see https://github.com/google/elemental2/issues/134 -->
-        <!-- 
-        <com.google.elemental2.version>1.0.0-RC1</com.google.elemental2.version>
-         -->
-        
         <three4g.version>0.108</three4g.version>
 	</properties>
 
