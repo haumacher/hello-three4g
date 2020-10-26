@@ -20,7 +20,7 @@ import elemental2.dom.HTMLCanvasElement;
  * {@link EntryPoint} to the hello cube app.
  * 
  * <p>
- * This is the straight forward translation of the rotating cube example from
+ * Straight forward translation of the rotating cube example from
  * https://threejsfundamentals.org/threejs/lessons/threejs-fundamentals.html to
  * GWT using the three4g API.
  * </p>
@@ -36,13 +36,14 @@ public class App implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		HTMLCanvasElement canvas = (HTMLCanvasElement) DomGlobal.document
-				.getElementById("canvas");
+		HTMLCanvasElement canvas = 
+			(HTMLCanvasElement) DomGlobal.document.getElementById("canvas");
 
 		WebGLRendererParameters rendererParams = new WebGLRendererParameters();
 		rendererParams.canvas = canvas;
 		_renderer = new WebGLRenderer(rendererParams);
 
+		// Create camera.
 		float fov = 75;
 		float aspect = 2;
 		float near = 0.1f;
@@ -52,41 +53,46 @@ public class App implements EntryPoint {
 
 		_scene = new Scene();
 
-		{
-			int color = 0xFFFFFF;
-			float intensity = 1;
-			DirectionalLight light = new DirectionalLight(color, intensity);
-			light.position.set(-1, 2, 4);
-			_scene.add(light);
-		}
+		// Create light.
+		int color = 0xFFFFFF;
+		float intensity = 1;
+		DirectionalLight light = new DirectionalLight(color, intensity);
+		light.position.set(-1, 2, 4);
+		_scene.add(light);
 
+		// Create cube geometry.
 		float boxWidth = 1;
 		float boxHeight = 1;
 		float boxDepth = 1;
 		BoxGeometry geometry = new BoxGeometry(boxWidth, boxHeight, boxDepth);
-
+		
+		// Create cube material.
 		MeshPhongMaterialParameters materialParams = new MeshPhongMaterialParameters();
 		materialParams.color = new Color(0x44aa88);
 		MeshPhongMaterial material = new MeshPhongMaterial(materialParams);
-
+		
+		// Crete Cube
 		_cube = new Mesh(geometry, material);
 		_scene.add(_cube);
 
+		// Start the event loop by requesting the first update.
 		DomGlobal.requestAnimationFrame(this::eventLoop);
 	}
 
 	void eventLoop(double timestamp) {
 		update(timestamp);
 
+		// Request the next update.
 		DomGlobal.requestAnimationFrame(this::eventLoop);
 	}
 
 	void update(double timestamp) {
+		// Update cube rotation.
 		float time = (float) (timestamp * 0.001);
-
 		_cube.rotation.x = time;
 		_cube.rotation.y = time;
 
+		// Render the updated scene.
 		_renderer.render(_scene, _camera);
 	}
 

@@ -7,6 +7,9 @@ in the browser.
 This mini app adapts the rotating cube example from the page 
 https://threejsfundamentals.org/threejs/lessons/threejs-fundamentals.html to GWT.
 
+   ![Eclipse setup](doc/screen-shot.png)
+
+
 ## Build
 
 To build the app in Eclipse you need the GWT plugin: https://gwt-plugins.github.io/documentation/gwt-eclipse-plugin/Download.html
